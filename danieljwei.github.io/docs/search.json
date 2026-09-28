@@ -4,7 +4,7 @@
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "Daniel Wei (any pronouns) is a queer, postgender-identifying Chinese-American environmental analysis student at Pomona College in Claremont, California. Originally from Sandy Ridge Township, North Carolina, Daniel enjoys reading about current events, taking pictures, and enjoying the xeriscapes of Southern California."
+    "text": "Daniel Wei (any pronouns) is a postgender-identifying Chinese-American environmental analysis student at Pomona College in Claremont, California. Originally from Sandy Ridge Township, North Carolina, Daniel enjoys reading about current events, taking pictures, and enjoying the xeriscapes of Southern California."
   },
   {
     "objectID": "index.html",
@@ -12,5 +12,12 @@
     "title": "Daniel Jiaming Wei",
     "section": "",
     "text": "page content excluded for brevity ~"
+  },
+  {
+    "objectID": "tt1.html",
+    "href": "tt1.html",
+    "title": "danieljwei.github.io",
+    "section": "",
+    "text": "For this analysis, I chose to use the xkcd color survey data. I am a fan of xkcd. TidyTuesday source: https://hardin47.github.io/TidyTuesday/2025-07-08/xkcd_color.html"
   }
 ]
