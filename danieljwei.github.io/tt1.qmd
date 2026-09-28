@@ -15,7 +15,7 @@ View(color_ranks)
 View(users)
 
 users |> group_by(spam_prob) |> ggplot(
-     aes(x = spam_prob)) + 
+     aes(x = y_chromosome)) + 
     geom_histogram()
 
 ```    
