@@ -1,7 +1,20 @@
 ---
-title: "danieljwei.github.io"
+title: "Daniel Jiaming Wei"
+image: CSC_0307.jpeg
+toc: false
+about: 
+  template: jolla
+  image-shape: round
+  image-width: 17em
+  links:
+    - text: LinkedIn
+      href: https://www.linkedin.com/in/danieljwei
+      target: _blank
+    - text: Files for this Website!
+      href: https://github.com/shikimicacid/myawesomewebsite.git
+      target: _blank 
+    - text: Photography!
+      href: https://www.instagram.com/playingdesertsolitaire/
 ---
+        
 
-This is a Quarto website.
-
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
