@@ -9,7 +9,7 @@ Data source: https://blog.xkcd.com/2010/05/03/color-survey-results/
 library(tidyverse)
 ```
 
-The question I'm asking: Were men or women more likely to submit spam? I'll be creating a barplot 
+The question I'm asking: Were more spam responses men or women? I'll be creating a histogram that looks to see what proportions of the responses with spam probability over 1 were men or women.  
 ```{r}
 answers <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2025/2025-07-08/answers.csv')
 color_ranks <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2025/2025-07-08/color_ranks.csv')
@@ -18,8 +18,11 @@ users <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidy
 #View(color_ranks)
 #View(users)
 
-users |> group_by(spam_prob) |> ggplot(
-     aes(x = y_chromosome)) + 
-    geom_histogram()
+users |> arrange(y_chromosome) |> filter(y_chromosome >= 0) |> filter(spam_prob > 1) |> ggplot(
+     aes(x = "", y = "", color = y_chromosome)) + 
+    geom_col() + 
+    labs (x = "spammer", y = "gender")
 
 ```    
+
+As is expected, men are more likely to spam. 

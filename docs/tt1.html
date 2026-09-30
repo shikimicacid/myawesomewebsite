@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>tt1 – danieljwei.github.io</title>
+<title>tt1 – haiiii :3</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -118,7 +118,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">danieljwei.github.io</span>
+    <span class="navbar-title">haiiii :3</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -173,7 +173,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
 </div>
 </div>
-<p>The question I’m asking: Were men or women more likely to submit spam? I’ll be creating a barplot</p>
+<p>The question I’m asking: Were more spam responses men or women? I’ll be creating a histogram that looks to see what proportions of the responses with spam probability over 1 were men or women.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>answers <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">'https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2025/2025-07-08/answers.csv'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
@@ -212,16 +212,10 @@ dbl (4): user_id, y_chromosome, colorblind, spam_prob
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co">#View(color_ranks)</span></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co">#View(users)</span></span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>users <span class="sc">|&gt;</span> <span class="fu">group_by</span>(spam_prob) <span class="sc">|&gt;</span> <span class="fu">ggplot</span>(</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>     <span class="fu">aes</span>(<span class="at">x =</span> y_chromosome)) <span class="sc">+</span> </span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_histogram</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>`stat_bin()` using `bins = 30`. Pick better value `binwidth`.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 7507 rows containing non-finite outside the scale range
-(`stat_bin()`).</code></pre>
-</div>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>users <span class="sc">|&gt;</span> <span class="fu">arrange</span>(y_chromosome) <span class="sc">|&gt;</span> <span class="fu">filter</span>(y_chromosome <span class="sc">&gt;=</span> <span class="dv">0</span>) <span class="sc">|&gt;</span> <span class="fu">filter</span>(spam_prob <span class="sc">&gt;</span> <span class="dv">1</span>) <span class="sc">|&gt;</span> <span class="fu">ggplot</span>(</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>     <span class="fu">aes</span>(<span class="at">x =</span> <span class="st">""</span>, <span class="at">y =</span> <span class="st">""</span>, <span class="at">color =</span> y_chromosome)) <span class="sc">+</span> </span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_col</span>() <span class="sc">+</span> </span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span> (<span class="at">x =</span> <span class="st">"spammer"</span>, <span class="at">y =</span> <span class="st">"gender"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -230,6 +224,7 @@ dbl (4): user_id, y_chromosome, colorblind, spam_prob
 </div>
 </div>
 </div>
+<p>As is expected, men are more likely to spam.</p>
 
 
 

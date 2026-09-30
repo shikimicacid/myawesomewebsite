@@ -1,6 +1,6 @@
 ---
 title: "Daniel Jiaming Wei"
-image: CSC_0307.jpeg
+image: media/CSC_0307.jpeg
 toc: false
 about: 
   template: jolla
