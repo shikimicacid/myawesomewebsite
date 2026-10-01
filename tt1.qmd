@@ -24,5 +24,4 @@ users |> arrange(y_chromosome) |> filter(y_chromosome >= 0) |> filter(spam_prob 
     labs (x = "spammer", y = "gender")
 
 ```    
-
 As is expected, men are more likely to spam. 

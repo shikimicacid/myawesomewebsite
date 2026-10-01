@@ -12,7 +12,8 @@ website:
         text: about
       - href: tt1.qmd
         text: analysis 1
-
+      - href: tt2.qmd
+        text: analysis 2
 format:
   html:
     theme:

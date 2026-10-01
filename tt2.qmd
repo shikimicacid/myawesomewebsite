@@ -1,0 +1,14 @@
+I chose the Edible Plants data. One of my hobbies is trying exotic fruits. This week, I tried carob, and I am waiting to try dried mulberry. I also ordered some dried waxapple from Taiwan. If you want some, I can bring the dried fruit to office hours next week!!
+
+Data: https://github.com/nrennie
+
+TidyTuesday Link: https://hardin47.github.io/TidyTuesday/2026-02-03/edibleplants.html 
+
+My question is, what nutrient levels do Alliums need to thrive? 
+```{r}
+library(tidyverse)
+library(tidytuesdayR)
+edible_plants <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2026/2026-02-03/edible_plants.csv')
+edible_plants |> filter(cultivation == "Allium") |> ggplot(aes(x = "", fill = nutrients)) + geom_bar() + labs(x = "alliums")
+
+```
