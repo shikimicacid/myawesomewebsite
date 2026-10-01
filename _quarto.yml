@@ -7,7 +7,7 @@ website:
   navbar:
     left:
       - href: index.qmd
-        text: Home
+        text: Home Page
       - href: about.qmd
         text: about
       - href: tt1.qmd
