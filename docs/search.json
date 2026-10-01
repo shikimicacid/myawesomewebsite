@@ -1,10 +1,10 @@
 [
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
+    "objectID": "tt2.html",
+    "href": "tt2.html",
+    "title": "haiiii :3",
     "section": "",
-    "text": "Daniel Wei (any pronouns) is a postgender-identifying Chinese-American environmental analysis student at Pomona College in Claremont, California. Originally from Sandy Ridge Township, North Carolina, Daniel enjoys reading about current events, taking pictures, and enjoying the xeriscapes of Southern California."
+    "text": "I chose the Edible Plants data. One of my hobbies is trying exotic fruits. This week, I tried carob, and I am waiting to try dried mulberry. I also ordered some dried waxapple from Taiwan. If you want some, I can bring the dried fruit to office hours next week!!\nData: https://github.com/nrennie\nTidyTuesday Link: https://hardin47.github.io/TidyTuesday/2026-02-03/edibleplants.html\nMy question is, what nutrient levels do Alliums need to thrive?\n\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.6\n✔ forcats   1.0.1     ✔ stringr   1.6.0\n✔ ggplot2   4.0.1     ✔ tibble    3.3.1\n✔ lubridate 1.9.4     ✔ tidyr     1.3.2\n✔ purrr     1.2.1     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(tidytuesdayR)\nedible_plants &lt;- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2026/2026-02-03/edible_plants.csv')\n\nRows: 140 Columns: 20\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr (17): taxonomic_name, common_name, cultivation, sunlight, water, nutrien...\ndbl  (3): preferred_ph_lower, preferred_ph_upper, energy\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\n\nedible_plants |&gt; filter(cultivation == \"Allium\") |&gt; ggplot(aes(x = \"\", fill = nutrients)) + geom_bar() + labs(x = \"alliums\")"
   },
   {
     "objectID": "index.html",
@@ -14,17 +14,17 @@
     "text": "Daniel Wei (any pronouns) is a postgender-identifying Chinese-American environmental analysis student at Pomona College in Claremont, California. Originally from Sandy Ridge Township, North Carolina, Daniel enjoys reading about current events, taking pictures, and enjoying the xeriscapes of Southern California."
   },
   {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "Daniel Wei (any pronouns) is a postgender-identifying Chinese-American environmental analysis student at Pomona College in Claremont, California. Originally from Sandy Ridge Township, North Carolina, Daniel enjoys reading about current events, taking pictures, and enjoying the xeriscapes of Southern California."
+  },
+  {
     "objectID": "tt1.html",
     "href": "tt1.html",
     "title": "haiiii :3",
     "section": "",
     "text": "For this analysis, I chose to use the xkcd color survey data. I am a fan of xkcd.\nTidyTuesday source: https://hardin47.github.io/TidyTuesday/2025-07-08/xkcd_color.html\nData source: https://blog.xkcd.com/2010/05/03/color-survey-results/\n\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.6\n✔ forcats   1.0.1     ✔ stringr   1.6.0\n✔ ggplot2   4.0.1     ✔ tibble    3.3.1\n✔ lubridate 1.9.4     ✔ tidyr     1.3.2\n✔ purrr     1.2.1     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\n\nThe question I’m asking: Were more spam responses men or women? I’ll be creating a histogram that looks to see what proportions of the responses with spam probability over 1 were men or women.\n\nanswers &lt;- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2025/2025-07-08/answers.csv')\n\nRows: 1058211 Columns: 3\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr (1): hex\ndbl (2): user_id, rank\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\n\ncolor_ranks &lt;- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2025/2025-07-08/color_ranks.csv')\n\nRows: 949 Columns: 3\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr (2): color, hex\ndbl (1): rank\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\n\nusers &lt;- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2025/2025-07-08/users.csv')\n\nRows: 152401 Columns: 5\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr (1): monitor\ndbl (4): user_id, y_chromosome, colorblind, spam_prob\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\n\n#View(answers)\n#View(color_ranks)\n#View(users)\n\nusers |&gt; arrange(y_chromosome) |&gt; filter(y_chromosome &gt;= 0) |&gt; filter(spam_prob &gt; 1) |&gt; ggplot(\n     aes(x = \"\", y = \"\", color = y_chromosome)) + \n    geom_col() + \n    labs (x = \"spammer\", y = \"gender\")\n\n\n\n\n\n\n\n\nAs is expected, men are more likely to spam."
-  },
-  {
-    "objectID": "tt2.html",
-    "href": "tt2.html",
-    "title": "haiiii :3",
-    "section": "",
-    "text": "I chose the Edible Plants data. One of my hobbies is trying exotic fruits. This week, I tried carob, and I am waiting to try dried mulberry. I also ordered some dried waxapple from Taiwan. If you want some, I can bring the dried fruit to office hours next week!!\nData: https://github.com/nrennie\nTidyTuesday Link: https://hardin47.github.io/TidyTuesday/2026-02-03/edibleplants.html\nMy question is, what nutrient levels do Alliums need to thrive?\n\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.6\n✔ forcats   1.0.1     ✔ stringr   1.6.0\n✔ ggplot2   4.0.1     ✔ tibble    3.3.1\n✔ lubridate 1.9.4     ✔ tidyr     1.3.2\n✔ purrr     1.2.1     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(tidytuesdayR)\nedible_plants &lt;- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2026/2026-02-03/edible_plants.csv')\n\nRows: 140 Columns: 20\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr (17): taxonomic_name, common_name, cultivation, sunlight, water, nutrien...\ndbl  (3): preferred_ph_lower, preferred_ph_upper, energy\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\n\nedible_plants |&gt; filter(cultivation == \"Allium\") |&gt; ggplot(aes(x = \"\", fill = nutrients)) + geom_bar() + labs(x = \"alliums\")"
   }
 ]
